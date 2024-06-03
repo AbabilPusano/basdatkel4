@@ -36,4 +36,22 @@ class ManajemenPengeluaran extends Controller {
             exit;
         }
     }
+
+    public function getubah()
+    {
+        echo json_encode($this->model('PengeluaranModel')->getExpenseById($_POST['id']));
+    }
+
+    public function ubah()
+    {
+        if( $this->model('PengeluaranModel')->ubahDataPengeluaran($_POST) >0 ){
+            Flasher::setFlash('berhasil', 'diuabh', 'success');
+            header('Location: ' . BASEURL . '/manajemenpengeluaran');
+            exit;
+        }else{
+            Flasher::setFlash('gagal', 'diuabh', 'danger');
+            header('Location: ' . BASEURL . '/manajemenpengeluaran');
+            exit;
+        }
+    }
 }

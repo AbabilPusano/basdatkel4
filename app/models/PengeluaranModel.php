@@ -49,4 +49,25 @@ class PengeluaranModel {
 
         return $this->db->rowCount();
     }
+
+    public function ubahDataPengeluaran($data)
+    {
+        $query = 'UPDATE pengeluaran SET
+                    nama_pengeluaran = :nama,
+                    tanggal = :tanggal,
+                    detail = :detail,
+                    harga = :harga
+                WHERE id = :id';
+        
+        $this->db->query($query);
+        $this->db->bind('nama', $data['namapengeluaran']);
+        $this->db->bind('tanggal', $data['tanggal']);
+        $this->db->bind('detail', $data['detail']);
+        $this->db->bind('harga', $data['jml']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

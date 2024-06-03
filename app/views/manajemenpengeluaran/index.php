@@ -79,7 +79,7 @@
 
               <!-- tombol tambah -->
               <div class="p-3">
-                <button type="button" class="buttonadd" data-bs-toggle="modal" data-bs-target="#addItem">
+                <button type="button" class="buttonadd tombolTambah" data-bs-toggle="modal" data-bs-target="#addItem">
                   <span class="button__text fs-6">Tambah</span>
                   <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
                       stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24"
@@ -133,7 +133,7 @@
                         <span class="text-secondary text-xs font-weight-bold text-wrap"><?= $exp['detail']; ?></span>
                       </td>
                       <td class="text-center justify-content-center gap-1">
-                        <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#editItem">
+                        <a href="<?= BASEURL; ?>/manajemenpengeluaran/ubah/<?= $exp['id'] ?>" class="button tampilModalUbah" data-bs-toggle="modal" data-bs-target="#addItem" data-id="<?= $exp['id'] ?>">
                           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"
                             fill="none">
                             <path
@@ -143,7 +143,7 @@
                               d="M17.1408 1.73437C17.5552 1.31997 18.1172 1.08716 18.7033 1.08716C19.2893 1.08716 19.8514 1.31997 20.2658 1.73437C20.6802 2.14877 20.913 2.71082 20.913 3.29687C20.913 3.88292 20.6802 4.44497 20.2658 4.85937L10.5002 14.625L6.3335 15.6667L7.37516 11.5L17.1408 1.73437Z"
                               stroke="#0275D8" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
                           </svg>
-                        </button>
+                        </a>
                         <a href="<?= BASEURL; ?>/manajemenpengeluaran/hapus/<?= $exp['id'] ?>" class="button" onclick="return confirm('yakin?')">
                           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24"
                             fill="none">
@@ -273,6 +273,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="<?= BASEURL; ?>/manajemenpengeluaran/tambah" method="post">
+            <input type="hidden" name="id" id="id">
             <div class="modal-body">
                 <!-- <div class="mb-3">
                 <label for="gambarfile">Gambar</label> </br>
@@ -281,19 +282,19 @@
                 </div> -->
                 <div class="mb-3">
                   <label class="form-label">Nama Pengeluaran</label>
-                  <input name='namapengeluaran' type="text" class="form-control" placeholder="Nama Pengeluaran">
+                  <input name='namapengeluaran' type="text" class="form-control" placeholder="Nama Pengeluaran" id="nama">
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Jumlah Pengeluaran</label>
-                  <input name='jml' type="number" class="form-control" placeholder="Masukan angka saja">
+                  <input name='jml' type="number" class="form-control" placeholder="Masukan angka saja" id="jumlah">
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Tanggal</label>
-                  <input class="form-control datepicker" name='tanggal' placeholder="Pilih tanggal" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                  <input class="form-control datepicker" name='tanggal' placeholder="Pilih tanggal" type="text" onfocus="focused(this)" onfocusout="defocused(this)" id="tanggal">
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Detail</label>
-                  <textarea class="form-control" name='detail' aria-label="With textarea" placeholder="Detail Pengeluaran"></textarea>
+                  <textarea class="form-control" name='detail' aria-label="With textarea" placeholder="Detail Pengeluaran" id="detail"></textarea>
                 </div>
                 <!-- <div class="mb-3">
                 <label class="form-label">Kategori</label>
@@ -327,6 +328,7 @@
   <script src="<?= BASEURL ?>/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/flatpickr.min.js"></script>
+  <script src="<?= BASEURL ?>/js/script/pengeluaran.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

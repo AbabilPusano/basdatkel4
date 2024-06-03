@@ -15,9 +15,9 @@ class TransaksiModel {
         return $this->db->resultSet();
     }
 
-    public function getProdukById($id)
+    public function getTransaksiById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE kode_pesanan=:id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }
@@ -49,6 +49,33 @@ class TransaksiModel {
         $query = "DELETE FROM transaksi WHERE kode_pesanan = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function ubahDataTransaksi($data)
+    {
+        $query = 'UPDATE transaksi SET
+                    nama_pelanggan = :nama,
+                    pesanan = :pesanan,
+                    jumlah_transaksi = :jml,
+                    waktu_masuk = :masuk,
+                    waktu_diterima = :waktu_diterima,
+                    total_harga = :total_harga
+                WHERE kode_pesanan = :id';
+        
+        $this->db->query($query);
+        $this->db->bind('nama', $data['namapemesan']);
+        $this->db->bind('pesanan', $data['barangpesanan']);
+        $this->db->bind('jml', $data['jml']);
+        $this->db->bind('masuk', $data['dipesan']);
+        $this->db->bind('total_harga', $data['harga']);
+        $this->db->bind('waktu_diterima', $data['diterima']);
+        $this->db->bind('id', $data['id']);
+
+        echo $data;
 
         $this->db->execute();
 
