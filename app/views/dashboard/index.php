@@ -199,15 +199,15 @@
                             <td>
                             <div class="text-center">
                                 <div class="ms-4">
-                                <p class="text-xs font-weight-bold mb-0">ID transaksi:</p>
-                                <h6 class="text-sm mb-0"><?= $mhs['id'] ?></h6>
+                                <p class="text-xs font-weight-bold mb-0">Kode transaksi:</p>
+                                <h6 class="text-sm mb-0"><?= $mhs['kode_pesanan'] ?></h6>
                                 </div>
                             </div>
                             </td>
                             <td>
                             <div class="text-center">
                                 <p class="text-xs font-weight-bold mb-0">Barang yang dipesan:</p>
-                                <h6 class="text-sm mb-0"><?= $mhs['nama_pelanggan'] ?></h6>
+                                <h6 class="text-sm mb-0"><?= $mhs['pesanan'] ?></h6>
                             </div>
                             </td>
                             <td>
@@ -231,19 +231,19 @@
                             <td>
                             <div class="text-center">
                                 <p class="text-xs font-weight-bold mb-0">Waktu dipesan:</p>
-                                <h6 class="text-sm mb-0"><?= $mhs['jumlah_transaksi'] ?></h6>
+                                <h6 class="text-sm mb-0"><?= $mhs['waktu_masuk'] ?></h6>
                             </div>
                             </td>
                             <td>
                             <div class="text-center">
                                 <p class="text-xs font-weight-bold mb-0">Estimasi waktu diterima:</p>
-                                <h6 class="text-sm mb-0"><?= $mhs['jumlah_transaksi'] ?></h6>
+                                <h6 class="text-sm mb-0"><?= $mhs['waktu_diterima'] ?></h6>
                             </div>
                             </td>
                             <td>
                             <div class="text-center">
                                 <p class="text-xs font-weight-bold mb-0">Status pesanan:</p>
-                                <h6 class="text-sm mb-0"><?= $mhs['jumlah_transaksi'] ?></h6>
+                                <h6 class="text-sm mb-0"><?= $mhs['status'] ?></h6>
                             </div>
                             </td>
                         </tr>
