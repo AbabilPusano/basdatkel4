@@ -195,7 +195,7 @@
                             <label class="form-label">Harga</label>
                             <input name='harga' type="number" class="form-control" placeholder="Masukan angka saja">
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                             <label class="form-label">Kategori</label>
                             <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name='kategori'>
                                 <option selected>Pilih Kategori</option>
@@ -210,7 +210,7 @@
                                 <option value="totebag">Totebag</option>
                                 <option value="celemek">Celemek</option>
                             </select>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

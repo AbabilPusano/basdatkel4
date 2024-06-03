@@ -10,4 +10,17 @@ class ManajemenTransaksi extends Controller{
         $this->view('manajementransaksi/index', $data);
         $this->view('templates/footer');
     }
+
+    public function tambah()
+    {
+        if( $this->model('TransaksiModel')->tambahDataTransaksi($_POST) >0 ){
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASEURL . '/manajementransaksi');
+            exit;
+        }else{
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL . '/manajementransaksi');
+            exit;
+        }
+    }
 }

@@ -76,6 +76,19 @@
               <div class="p-3">
                 <h6>Manajemen Transaksi</h6>
               </div>
+
+              <!-- tombol tambah -->
+              <div class="p-3">
+                <button type="button" class="buttonadd" data-bs-toggle="modal" data-bs-target="#addItem">
+                  <span class="button__text fs-6">Tambah</span>
+                  <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24"
+                      fill="none" class="svg">
+                      <line y2="19" y1="5" x2="12" x1="12"></line>
+                      <line y2="12" y1="12" x2="19" x1="5"></line>
+                    </svg></span>
+                </button>
+              </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -268,11 +281,79 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal main-->
+  <div class="modal fade" id="addItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Transaksi</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="<?= BASEURL; ?>/manajementransaksi/tambah" method="post">
+            <div class="modal-body">
+                <!-- <div class="mb-3">
+                <label for="gambarfile">Gambar</label> </br>
+                <img id="thumbnail" alt="Preview gambar"> </br>
+                <input type="file" id="gambarfile" name="gambarfile" accept="image/jpeg, image/png">
+                </div> -->
+                <div class="mb-3">
+                  <label class="form-label">Barang Pesanan</label>
+                  <input name='barangpesanan' type="text" class="form-control" placeholder="Barang Pesanan">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Nama Pemesan</label>
+                  <input name='namapemesan' type="text" class="form-control" placeholder="Nama Pemesan">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Jumlah Barang</label>
+                  <input name='jml' type="number" class="form-control" placeholder="Masukan angka saja">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Waktu Dipesan</label>
+                  <input class="form-control datepicker" name='dipesan' placeholder="Pilih tanggal dipesan" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Estimasi Diterima</label>
+                  <input class="form-control datepicker" name='diterima' placeholder="Pilih tanggal estimasi diterima" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Total Harga</label>
+                  <input name='harga' type="number" class="form-control" placeholder="Masukan angka saja">
+                </div>
+                <!-- <div class="mb-3">
+                <label class="form-label">Kategori</label>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name='kategori'>
+                    <option selected>Pilih Kategori</option>
+                    <option value="kaos">Kaos</option>
+                    <option value="kaos-polo">Kaos Polo</option>
+                    <option value="hoodie">Hoodie</option>
+                    <option value="kemeja">Kemeja</option>
+                    <option value="topi">Topi</option>
+                    <option value="celana-training">Celana Training</option>
+                    <option value="celana-formal">Celana Formal</option>
+                    <option value="slayer">Slayer</option>
+                    <option value="totebag">Totebag</option>
+                    <option value="celemek">Celemek</option>
+                </select>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!--   Core JS Files   -->
   <script src="<?= BASEURL ?>/js/core/popper.min.js"></script>
   <script src="<?= BASEURL ?>/js/core/bootstrap.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="<?= BASEURL ?>/js/plugins/flatpickr.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -289,6 +370,7 @@
 
   <!-- JS dropdown -->
   <script>
+
     const dropdowns = document.querySelectorAll('.dropdown');
 
     dropdowns.forEach(dropdown => {
@@ -343,5 +425,15 @@
         statusElement.classList.remove('proses', 'selesai', 'tunda');
         statusElement.classList.add(newStatus.toLowerCase());
       }
+    });
+  </script>
+  <!-- JS Datepicker -->
+  <script>
+    $(document).ready(function(){
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            todayHighlight: true,
+            autoclose: true
+        });
     });
   </script>
