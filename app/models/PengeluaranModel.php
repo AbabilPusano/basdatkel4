@@ -21,4 +21,21 @@ class PengeluaranModel {
         $this->db->bind('id', $id);
         return $this->db->single();
     }
+
+    public function tambahDataPengeluaran($data)
+    {
+        $query = 'INSERT INTO pengeluaran ("nama_pengeluaran", "tanggal", "detail", "harga")
+                    VALUES
+                    (:nama, :tanggal, :detail, :harga)';
+        
+        $this->db->query($query);
+        $this->db->bind('nama', $data['namapengeluaran']);
+        $this->db->bind('tanggal', $data['tanggal']);
+        $this->db->bind('detail', $data['detail']);
+        $this->db->bind('harga', $data['jml']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

@@ -188,8 +188,8 @@
                             <input name='namaproduk' type="text" class="form-control" placeholder="Nama Produk">
                             </div>
                             <div class="mb-3">
-                            <label class="form-label">Deskripsi</label>
-                            <textarea class="form-control" name='deskripsi' aria-label="With textarea" placeholder="Deskripsi Produk"></textarea>
+                              <label class="form-label">Deskripsi</label>
+                              <textarea class="form-control" name='deskripsi' aria-label="With textarea" placeholder="Deskripsi Produk"></textarea>
                             </div>
                             <div class="mb-3">
                             <label class="form-label">Harga</label>

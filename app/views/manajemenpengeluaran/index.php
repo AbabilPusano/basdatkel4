@@ -10,7 +10,7 @@
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html "
         target="_blank">
         <img src="<?= BASEURL ?>/img/logo-konveksi.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="mx-auto text-xs font-weight-bold">Konveksi Rahayu Dashboard</span>
+        <span class="mx-auto font-weight-bold text-xs">Konveksi Rahayu Dashboard</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -26,7 +26,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= BASEURL ?>/manajemenproduk">
+          <a class="nav-link " href="<?= BASEURL ?>/manajemenproduk">
             <div
               class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10 "></i>
@@ -54,7 +54,6 @@
         </li>
   </aside>
   <main class="main-content position-relative border-radius-lg ">
-
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
       data-scroll="false">
@@ -69,8 +68,6 @@
       </div>
     </nav>
     <!-- End Navbar -->
-
-    <!-- table -->
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
@@ -79,20 +76,27 @@
               <div class="p-3">
                 <h6>Manajemen Pengeluaran</h6>
               </div>
+
+              <!-- tombol tambah -->
               <div class="p-3">
                 <button type="button" class="buttonadd" data-bs-toggle="modal" data-bs-target="#addItem">
-                  <span class="button__text fs-6">Add Item</span>
-                  <span class="button__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2"
-                      stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none"
-                      class="svg">
+                  <span class="button__text fs-6">Tambah</span>
+                  <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24"
+                      fill="none" class="svg">
                       <line y2="19" y1="5" x2="12" x1="12"></line>
                       <line y2="12" y1="12" x2="19" x1="5"></line>
-                    </svg>
-                  </span>
+                    </svg></span>
                 </button>
               </div>
             </div>
+
+            <div class="row">
+              <div class="row-lg-6">
+                <?php Flasher::flash(); ?>
+              </div>
+            </div>
+
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
@@ -149,7 +153,7 @@
                           </svg>
                         </button>
                       </td>
-                    </tr>
+                        </tr>
                     <?php endforeach; ?>
                   </tbody>
                 </table>
@@ -158,137 +162,22 @@
           </div>
         </div>
       </div>
-    </div>
 
-
-    <!-- Modal main-->
-    <div class="modal fade" id="addItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Item</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="editItemForm">
-              <div class="mb-3">
-                <label class="form-label">Nama Produk</label>
-                <input type="text" class="form-control" placeholder="Nama Produk" name="namaProduk">
+      <!-- Footer -->
+      <footer class="footer pt-3  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made by <span class="fw-medium" style="color: blue;">Kelompok 2</span>
               </div>
-              <div class="mb-3">
-                <label class="form-label">Stock</label>
-                <input type="number" class="form-control" placeholder="Stock" name="stock">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Harga</label>
-                <input type="number" class="form-control" placeholder="Masukan angka saja" name="harga">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Tanggal</label>
-                <input type="date" class="form-control" id="tanggalInput" name="tanggal">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Detail</label>
-                <textarea class="form-control" placeholder="Detail" id="floatingTextarea"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="submitForm()">Confirm</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <!-- Modal -->
-
-    <!-- Modal edit-->
-    <div class="modal fade" id="editItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Item</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="editItemForm">
-              <div class="mb-3">
-                <label class="form-label">Nama Produk</label>
-                <input type="text" class="form-control" placeholder="Nama Produk" name="namaProduk">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Stock</label>
-                <input type="number" class="form-control" placeholder="Stock" name="stock">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Harga</label>
-                <input type="number" class="form-control" placeholder="Masukan angka saja" name="harga">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Tanggal</label>
-                <input type="date" class="form-control" id="tanggalInput" name="tanggal">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Detail</label>
-                <textarea class="form-control" placeholder="Detail" id="floatingTextarea"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="submitForm()">Confirm</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-
-    <!-- Modal delete-->
-    <div class="modal fade" id="deleteItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Item</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p>
-              Apakah anda yakin ingin menghapus item ini?
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-danger" onclick="submitForm()">Confirm</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    </div>
-    </div>
-    </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer pt-3">
-      <div class="container-fluid">
-        <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-6 mb-lg-0 mb-4">
-            <div class="copyright text-center text-sm text-muted text-lg-start">
-              © <script>
-                document.write(new Date().getFullYear())
-              </script>,
-              made by <span class="fw-medium" style="color: blue;">Kelompok 2</span>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
-
+      </footer>
     </div>
   </main>
   <div class="fixed-plugin">
@@ -372,11 +261,71 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal main-->
+  <div class="modal fade" id="addItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Pengeluaran</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="<?= BASEURL; ?>/manajemenpengeluaran/tambah" method="post">
+            <div class="modal-body">
+                <!-- <div class="mb-3">
+                <label for="gambarfile">Gambar</label> </br>
+                <img id="thumbnail" alt="Preview gambar"> </br>
+                <input type="file" id="gambarfile" name="gambarfile" accept="image/jpeg, image/png">
+                </div> -->
+                <div class="mb-3">
+                  <label class="form-label">Nama Pengeluaran</label>
+                  <input name='namapengeluaran' type="text" class="form-control" placeholder="Nama Pengeluaran">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Jumlah Pengeluaran</label>
+                  <input name='jml' type="number" class="form-control" placeholder="Masukan angka saja">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Tanggal</label>
+                  <input class="form-control datepicker" name='tanggal' placeholder="Pilih tanggal" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Detail</label>
+                  <textarea class="form-control" name='detail' aria-label="With textarea" placeholder="Detail Pengeluaran"></textarea>
+                </div>
+                <!-- <div class="mb-3">
+                <label class="form-label">Kategori</label>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name='kategori'>
+                    <option selected>Pilih Kategori</option>
+                    <option value="kaos">Kaos</option>
+                    <option value="kaos-polo">Kaos Polo</option>
+                    <option value="hoodie">Hoodie</option>
+                    <option value="kemeja">Kemeja</option>
+                    <option value="topi">Topi</option>
+                    <option value="celana-training">Celana Training</option>
+                    <option value="celana-formal">Celana Formal</option>
+                    <option value="slayer">Slayer</option>
+                    <option value="totebag">Totebag</option>
+                    <option value="celemek">Celemek</option>
+                </select>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!--   Core JS Files   -->
   <script src="<?= BASEURL ?>/js/core/popper.min.js"></script>
   <script src="<?= BASEURL ?>/js/core/bootstrap.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="<?= BASEURL ?>/js/plugins/flatpickr.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -391,44 +340,9 @@
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="<?= BASEURL ?>/js/argon-dashboard.min.js?v=2.0.4"></script>
 
-  <!-- ajax -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-  <!-- js date-->
+  <!-- JS dropdown -->
   <script>
-    document.getElementById('gambarfile').addEventListener('change', function (event) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          document.getElementById('thumbnail').src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
 
-    function submitForm() {
-      const formData = new FormData(document.getElementById('editItemForm'));
-      $.ajax({
-        url: 'your-server-endpoint', // replace with your server endpoint
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function (response) {
-          console.log('Form submitted successfully:', response);
-          // Handle success actions
-          $('#editItem').modal('hide');
-        },
-        error: function (xhr, status, error) {
-          console.error('Form submission failed:', error);
-          // Handle error actions
-        }
-      });
-    }
-  </script>
-
-  <script>
     const dropdowns = document.querySelectorAll('.dropdown');
 
     dropdowns.forEach(dropdown => {
@@ -438,7 +352,6 @@
       const options = dropdown.querySelectorAll('.statuses li');
       const selected = dropdown.querySelector('.selected');
 
-      // Pengecekan null sebelum menambahkan event listener
       if (select && caret && statuses && selected) {
         select.addEventListener('click', () => {
           select.classList.toggle('select-clicked');
@@ -461,7 +374,6 @@
         });
       }
 
-      // Pengecekan null pada document event listener
       document.addEventListener('click', (e) => {
         if (!dropdown.contains(e.target)) {
           select.classList.remove('select-clicked');
@@ -469,5 +381,31 @@
           statuses.classList.remove('statuses-open');
         }
       });
+    });
+  </script>
+  <!-- JS status -->
+  <script>
+    const dropdown = document.querySelector('.dropdown-container .dropdown');
+    const statusElement = document.querySelector('.align-middle .proses');
+
+    dropdown.addEventListener('click', function (event) {
+      if (event.target.tagName === 'LI') {
+        const newStatus = event.target.innerText;
+
+        statusElement.innerText = newStatus;
+
+        statusElement.classList.remove('proses', 'selesai', 'tunda');
+        statusElement.classList.add(newStatus.toLowerCase());
+      }
+    });
+  </script>
+  <!-- JS Datepicker -->
+  <script>
+    $(document).ready(function(){
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            todayHighlight: true,
+            autoclose: true
+        });
     });
   </script>
