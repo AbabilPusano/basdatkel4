@@ -4,6 +4,7 @@ class ManajemenProduk extends Controller{
     public function index()
     {
         $data['judul'] = 'Manajemen Produk';
+        $data['produk'] = $this->model('ProdukModel')->getAllProduk();
 
         $this->view('templates/header', $data);
         $this->view('manajemenproduk/index', $data);
