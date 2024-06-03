@@ -19,4 +19,12 @@ class ManajemenProduk extends Controller{
         $this->view('manajemenproduk/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function tambah()
+    {
+        if( $this->model('ProdukModel')->tambahDataProduk($_POST) >0 ){
+            header('Location: ' . BASEURL . '/manajemenproduk');
+            exit;
+        }
+    }
 }

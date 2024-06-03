@@ -21,4 +21,21 @@ class ProdukModel {
         $this->db->bind('id', $id);
         return $this->db->single();
     }
+
+    public function tambahDataProduk($data)
+    {
+        $query = 'INSERT INTO produk ("nama_produk", "harga", "deskripsi", "gambar")
+                    VALUES
+                    (:nama, :harga, :deskripsi, :gambar)';
+        
+        $this->db->query($query);
+        $this->db->bind('nama', $data['namaproduk']);
+        $this->db->bind('harga', $data['harga']);
+        $this->db->bind('deskripsi', $data['deskripsi']);
+        $this->db->bind('gambar', $data['gambarfile']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

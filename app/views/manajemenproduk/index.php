@@ -1,6 +1,8 @@
 
 <body class="g-sidenav-show   bg-gray-100">
   <div class="min-height-300 bg-primary position-absolute w-100"></div>
+
+  <!-- Sidebar -->
   <aside
     class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
     id="sidenav-main">
@@ -53,6 +55,7 @@
           </a>
         </li>
   </aside>
+
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
@@ -67,7 +70,6 @@
         </nav>
       </div>
     </nav>
-    <!-- End Navbar -->
 
     <!-- table -->
     <div class="container-fluid py-4">
@@ -78,9 +80,11 @@
               <div class="p-3">
                 <h6>Manajemen Produk</h6>
               </div>
+
+              <!-- tombol tambah -->
               <div class="p-3">
                 <button type="button" class="buttonadd" data-bs-toggle="modal" data-bs-target="#addItem">
-                  <span class="button__text fs-6">Add Item</span>
+                  <span class="button__text fs-6">Tambah</span>
                   <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
                       stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24"
                       fill="none" class="svg">
@@ -166,47 +170,47 @@
                       <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Item</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                      <form action="" method="">
-                        <div class="mb-3">
-                          <label for="gambarfile">Gambar</label> </br>
-                          <img id="thumbnail" alt="Preview gambar"> </br>
-                          <input type="file" id="gambarfile" name="gambarfile" accept="image/jpeg, image/png">
+                    <form action="<?= BASEURL; ?>/manajemenproduk/tambah" method="post">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                            <label for="gambarfile">Gambar</label> </br>
+                            <img id="thumbnail" alt="Preview gambar"> </br>
+                            <input type="file" id="gambarfile" name="gambarfile" accept="image/jpeg, image/png">
+                            </div>
+                            <div class="mb-3">
+                            <label class="form-label">Nama Produk</label>
+                            <input name='namaproduk' type="text" class="form-control" placeholder="Nama Produk">
+                            </div>
+                            <div class="mb-3">
+                            <label class="form-label">Deskripsi</label>
+                            <textarea class="form-control" name='deskripsi' aria-label="With textarea" placeholder="Deskripsi Produk"></textarea>
+                            </div>
+                            <div class="mb-3">
+                            <label class="form-label">Harga</label>
+                            <input name='harga' type="number" class="form-control" placeholder="Masukan angka saja">
+                            </div>
+                            <div class="mb-3">
+                            <label class="form-label">Kategori</label>
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name='kategori'>
+                                <option selected>Pilih Kategori</option>
+                                <option value="kaos">Kaos</option>
+                                <option value="kaos-polo">Kaos Polo</option>
+                                <option value="hoodie">Hoodie</option>
+                                <option value="kemeja">Kemeja</option>
+                                <option value="topi">Topi</option>
+                                <option value="celana-training">Celana Training</option>
+                                <option value="celana-formal">Celana Formal</option>
+                                <option value="slayer">Slayer</option>
+                                <option value="totebag">Totebag</option>
+                                <option value="celemek">Celemek</option>
+                            </select>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label">Nama Produk</label>
-                          <input type="text" class="form-control" placeholder="Nama Produk">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Confirm</button>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label">Stock</label>
-                          <input type="text" class="form-control" placeholder="Stock">
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label">Harga</label>
-                          <input type="text" class="form-control" placeholder="Masukan angka saja">
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label">Kategori</label>
-                          <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Pilih Kategori</option>
-                            <option value="kaos">Kaos</option>
-                            <option value="kaos-polo">Kaos Polo</option>
-                            <option value="hoodie">Hoodie</option>
-                            <option value="kemeja">Kemeja</option>
-                            <option value="topi">Topi</option>
-                            <option value="celana-training">Celana Training</option>
-                            <option value="celana-formal">Celana Formal</option>
-                            <option value="slayer">Slayer</option>
-                            <option value="totebag">Totebag</option>
-                            <option value="celemek">Celemek</option>
-                          </select>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Confirm</button>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
