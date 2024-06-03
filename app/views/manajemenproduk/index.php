@@ -83,7 +83,7 @@
 
               <!-- tombol tambah -->
               <div class="p-3">
-                <button type="button" class="buttonadd" data-bs-toggle="modal" data-bs-target="#addItem">
+                <button type="button tombolTambah" class="buttonadd" data-bs-toggle="modal" data-bs-target="#addItem">
                   <span class="button__text fs-6">Tambah</span>
                   <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
                       stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24"
@@ -141,7 +141,7 @@
                             <span class="text-secondary text-xs font-weight-bold"><?= $prdk['deskripsi']; ?></span>
                         </td>
                         <td class="text-center justify-content-center gap-1">
-                            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#editItem">
+                            <a href="<?= BASEURL; ?>/manajemenproduk/ubah/<?= $prdk['id'] ?>" class="button tampilModalUbah" data-bs-toggle="modal" data-bs-target="#addItem" data-id="<?= $prdk['id'] ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"
                                 fill="none">
                                 <path
@@ -151,7 +151,7 @@
                                 d="M17.1408 1.73437C17.5552 1.31997 18.1172 1.08716 18.7033 1.08716C19.2893 1.08716 19.8514 1.31997 20.2658 1.73437C20.6802 2.14877 20.913 2.71082 20.913 3.29687C20.913 3.88292 20.6802 4.44497 20.2658 4.85937L10.5002 14.625L6.3335 15.6667L7.37516 11.5L17.1408 1.73437Z"
                                 stroke="#0275D8" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            </button>
+                            </a>
                             <a href="<?= BASEURL; ?>/manajemenproduk/hapus/<?= $prdk['id'] ?>" class="button" onclick="return confirm('yakin?')">
                               <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24"
                                 fill="none">
@@ -177,6 +177,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="<?= BASEURL; ?>/manajemenproduk/tambah" method="post">
+                        <input type="hidden" name="id" id="id">
                         <div class="modal-body">
                             <div class="mb-3">
                             <label for="gambarfile">Gambar</label> </br>
@@ -185,15 +186,15 @@
                             </div>
                             <div class="mb-3">
                             <label class="form-label">Nama Produk</label>
-                            <input name='namaproduk' type="text" class="form-control" placeholder="Nama Produk">
+                            <input name='namaproduk' id='nama' type="text" class="form-control" placeholder="Nama Produk">
                             </div>
                             <div class="mb-3">
                               <label class="form-label">Deskripsi</label>
-                              <textarea class="form-control" name='deskripsi' aria-label="With textarea" placeholder="Deskripsi Produk"></textarea>
+                              <textarea class="form-control" id='deskripsi' name='deskripsi' aria-label="With textarea" placeholder="Deskripsi Produk"></textarea>
                             </div>
                             <div class="mb-3">
                             <label class="form-label">Harga</label>
-                            <input name='harga' type="number" class="form-control" placeholder="Masukan angka saja">
+                            <input name='harga' type="number" id='harga' class="form-control" placeholder="Masukan angka saja">
                             </div>
                             <!-- <div class="mb-3">
                             <label class="form-label">Kategori</label>
@@ -407,6 +408,8 @@
   <script src="<?= BASEURL ?>/js/core/bootstrap.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?= BASEURL ?>/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="<?= BASEURL ?>/js/script/produk.js"></script>
+
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

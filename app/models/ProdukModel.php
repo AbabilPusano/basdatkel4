@@ -49,4 +49,27 @@ class ProdukModel {
 
         return $this->db->rowCount();
     }
+
+    public function ubahDataProduk($data)
+    {
+        $query = 'UPDATE produk SET
+                    nama_produk = :nama,
+                    harga = :harga,
+                    deskripsi = :deskripsi,
+                    gambar = :gambar
+                WHERE id = :id';
+        
+        $this->db->query($query);
+        $this->db->bind('nama', $data['namaproduk']);
+        $this->db->bind('harga', $data['harga']);
+        $this->db->bind('deskripsi', $data['deskripsi']);
+        $this->db->bind('gambar', $data['gambarfile']);
+        $this->db->bind('id', $data['id']);
+
+        echo $data;
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
