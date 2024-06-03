@@ -11100,6 +11100,10 @@ fieldset:disabled .btn {
   height: 600px !important;
 }
 
+.max-width-30 {
+  max-width: 30px !important;
+}
+
 .max-width-100 {
   max-width: 100px !important;
 }

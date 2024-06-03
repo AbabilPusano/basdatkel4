@@ -268,69 +268,24 @@
           <ul class="list-group">
 
             <!-- Produk -->
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                  <i class="ni ni-mobile-button text-white opacity-10"></i>
+            <?php foreach( $data['produk'] as $prdk) : ?>
+                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                <div class="d-flex align-items-center">
+                    <div class="icon icon-shape icon-sm me-3 bg-gradient-secondary shadow text-center">
+                        <img src="<?= BASEURL ?>/img/<?= $prdk['gambar']; ?>" alt="" class="img-fluid max-width-30">
+                    </div>
+                    <div class="d-flex flex-column">
+                    <h6 class="mb-1 text-dark text-sm"><?= $prdk['nama_produk']; ?></h6>
+                    <span class="text-xs">Harga mulai dari <span class="font-weight-bold">Rp <?= $prdk['harga']; ?></span></span>
+                    </div>
                 </div>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Kain Sutra</h6>
-                  <span class="text-xs">Stock : 30 m, <span class="font-weight-bold">Terjual : 20 m</span></span>
+                <div class="d-flex">
+                    <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
+                        class="ni ni-bold-right" aria-hidden="true"></i></button>
                 </div>
-              </div>
-              <div class="d-flex">
-                <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                    class="ni ni-bold-right" aria-hidden="true"></i></button>
-              </div>
-            </li>
+                </li>
+            <?php endforeach; ?>
 
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                  <i class="ni ni-tag text-white opacity-10"></i>
-                </div>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Tickets</h6>
-                  <span class="text-xs">123 closed, <span class="font-weight-bold">15 open</span></span>
-                </div>
-              </div>
-              <div class="d-flex">
-                <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                    class="ni ni-bold-right" aria-hidden="true"></i></button>
-              </div>
-            </li>
-
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                  <i class="ni ni-box-2 text-white opacity-10"></i>
-                </div>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Error logs</h6>
-                  <span class="text-xs">1 is active, <span class="font-weight-bold">40 closed</span></span>
-                </div>
-              </div>
-              <div class="d-flex">
-                <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                    class="ni ni-bold-right" aria-hidden="true"></i></button>
-              </div>
-            </li>
-
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                  <i class="ni ni-satisfied text-white opacity-10"></i>
-                </div>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Happy users</h6>
-                  <span class="text-xs font-weight-bold">+ 430</span>
-                </div>
-              </div>
-              <div class="d-flex">
-                <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                    class="ni ni-bold-right" aria-hidden="true"></i></button>
-              </div>
-            </li>
           </ul>
         </div>
       </div>
