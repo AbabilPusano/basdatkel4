@@ -32,4 +32,17 @@ class ManajemenProduk extends Controller{
             exit;
         }
     }
+
+    public function hapus($id)
+    {
+        if( $this->model('ProdukModel')->hapusDataProduk($id) >0 ){
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('Location: ' . BASEURL . '/manajemenproduk');
+            exit;
+        }else{
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . '/manajemenproduk');
+            exit;
+        }
+    }
 }

@@ -23,4 +23,17 @@ class ManajemenPengeluaran extends Controller {
             exit;
         }
     }
+
+    public function hapus($id)
+    {
+        if( $this->model('PengeluaranModel')->hapusDataPengeluaran($id) >0 ){
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('Location: ' . BASEURL . '/manajemenpengeluaran');
+            exit;
+        }else{
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . '/manajemenpengeluaran');
+            exit;
+        }
+    }
 }

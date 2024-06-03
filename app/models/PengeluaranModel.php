@@ -38,4 +38,15 @@ class PengeluaranModel {
 
         return $this->db->rowCount();
     }
+
+    public function hapusDataPengeluaran($id)
+    {
+        $query = "DELETE FROM pengeluaran WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

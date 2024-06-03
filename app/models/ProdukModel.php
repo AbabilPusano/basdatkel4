@@ -38,4 +38,15 @@ class ProdukModel {
 
         return $this->db->rowCount();
     }
+
+    public function hapusDataProduk($id)
+    {
+        $query = "DELETE FROM produk WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

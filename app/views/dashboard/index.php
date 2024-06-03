@@ -243,7 +243,7 @@
                             <td>
                             <div class="text-center">
                                 <p class="text-xs font-weight-bold mb-0">Status pesanan:</p>
-                                <h6 class="text-sm mb-0"><?= $mhs['status'] ?></h6>
+                                <h6 class="text-sm mb-0"><?= $mhs['status_pesanan'] ?></h6>
                             </div>
                             </td>
                         </tr>
