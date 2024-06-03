@@ -112,22 +112,21 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php foreach( $data['exp'] as $exp) : ?>
                     <tr>
                       <td>
                         <div class="px-3 py-1">
-                          <h6 class="mb-0 text-sm">Kaos polo biru</h6>
+                          <h6 class="mb-0 text-sm"><?= $exp['nama_pengeluaran']; ?></h6>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">1.000.000.000</p>
+                        <p class="text-xs font-weight-bold mb-0"><?= $exp['harga']; ?></p>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">DD/MM/YYYY</span>
+                        <span class="text-secondary text-xs font-weight-bold"><?= $exp['tanggal']; ?></span>
                       </td>
                       <td class="align-middle text-center detail-column">
-                        <span class="text-secondary text-xs font-weight-bold text-wrap">Lorem ipsum dolor sit amet,
-                          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                          aliqua.</span>
+                        <span class="text-secondary text-xs font-weight-bold text-wrap"><?= $exp['detail']; ?></span>
                       </td>
                       <td class="text-center justify-content-center gap-1">
                         <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#editItem">
@@ -151,6 +150,7 @@
                         </button>
                       </td>
                     </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>
