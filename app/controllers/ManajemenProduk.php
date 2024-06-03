@@ -23,6 +23,11 @@ class ManajemenProduk extends Controller{
     public function tambah()
     {
         if( $this->model('ProdukModel')->tambahDataProduk($_POST) >0 ){
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASEURL . '/manajemenproduk');
+            exit;
+        }else{
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/manajemenproduk');
             exit;
         }

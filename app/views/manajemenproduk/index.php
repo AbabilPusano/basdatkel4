@@ -95,6 +95,12 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="row-lg-6">
+                <?php Flasher::flash(); ?>
+              </div>
+            </div>
+
             <!-- table -->
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
